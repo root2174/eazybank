@@ -12,8 +12,16 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards").authenticated()
-                        .requestMatchers("/notices", "/contact").permitAll()
+                        .requestMatchers(
+                                "/myAccount",
+                                "/myBalance",
+                                "/myLoans",
+                                "/myCards"
+                        ).authenticated()
+                        .requestMatchers(
+                                "/notices",
+                                "/contact"
+                        ).permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
