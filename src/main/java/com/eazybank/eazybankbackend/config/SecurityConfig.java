@@ -37,11 +37,6 @@ public class SecurityConfig {
                 .build();
     }
 
-    @Bean
-    public UserDetailsService userDetailsService(DataSource dataSource) {
-        return new JdbcUserDetailsManager(dataSource);
-    }
-
     /**
      * NoOpPasswordEncoder is not recommended for production.
      *
